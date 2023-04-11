@@ -1,0 +1,127 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+.container{
+ width:100%;
+ columns: 3;
+ margin: 0px auto;
+ gap: 5px;
+ padding: 5px;
+ 
+}
+.pics{
+  min-width: min-content;
+  max-width: 320px;
+  min-height: min-content;
+  max-height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.card-1{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.card-body{
+  border-radius: 10px;
+width: 100%;
+ height: 100%; 
+ top: 0;
+ right: -100%;
+ position: absolute;
+ background-color: #1f3d4738;
+ backdrop-filter: blur(5px);
+ display: flex;
+ flex-direction: column;
+ justify-content: end;
+ align-items: center;
+ transition: 1s;
+}
+p{
+  border-radius: 5px;
+  min-width: 20px;
+  max-width: min-content;
+  padding-inline: 10px;
+background-color: rgba(79, 83, 83, 0.318);
+  color: rgb(255, 251, 251);
+  letter-spacing: 1px;
+}
+.card-body .delete{
+  position: absolute;
+  top:10%;
+  left: 70%;
+}
+.pics:hover .card-body{
+  right: 0%;
+}
+/* .pics .delete{
+  position: absolute;
+  top: 5%;
+  left: 120%;
+}
+.pics p{
+  border-radius: 5px;
+  min-width: 20px;
+  max-width: min-content;
+  padding-inline: 10px;
+background-color: rgba(20, 19, 19, 0.562);
+  position: absolute;
+  bottom: 1%;
+  left: 55%;
+  color: rgb(255, 251, 251);
+  letter-spacing: 1px;
+}
+.pics img{
+  
+  width: 320px;
+  min-height: min-content;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+}
+.pics{
+  position: relative;
+ width: 200px;
+ margin-bottom: 10px;
+ break-inside: avoid;
+} */
+
+.main{
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  
+}
+.header1{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.header2{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+svg{
+  margin-top: 7px;
+}
