@@ -16,7 +16,7 @@ const App = () => {
 
     const getPics = async () => {
         try {
-            const res = await fetch(`http://127.0.0.1:8000/pics`, {
+            const res = await fetch(`https://gallery-app-backend-csdh.onrender.com/pics`, {
                 method: "GET"
             })
             const result = await res.json();
