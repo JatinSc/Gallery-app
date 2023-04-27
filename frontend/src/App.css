@@ -101,8 +101,7 @@ background-color: rgba(20, 19, 19, 0.562);
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
-  align-items: center;
-  
+  align-items: center; 
 }
 .header1{
   display:flex;

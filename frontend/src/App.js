@@ -35,9 +35,10 @@ const App = () => {
     }, [])
 
     const handelAdd = async (event) => {
+        //local server   http://127.0.0.1:8000
         event.preventDefault();
         try {
-            const res = fetch(`http://127.0.0.1:8000/newPost`, {
+            const res = fetch(`https://gallery-app-backend-csdh.onrender.com/newPost`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -57,7 +58,7 @@ const App = () => {
 
     const handelDelete = async (id) => {
         try {
-            const res = await fetch(`http://127.0.0.1:8000/delete${id}`, {
+            const res = await fetch(`https://gallery-app-backend-csdh.onrender.com/delete${id}`, {
                 method: "DELETE"
             })
             const result = await res.json();
