@@ -84,7 +84,7 @@ const App = () => {
                             </div>
 
                         </div>
-                        <div style={{ width: "350px", padding: "10px" }}>
+                        <div style={{ width: "60%",padding: "10px" }}>
                             <FloatingLabel
                                 controlId="floatingInput"
                                 label="Search by name"
@@ -113,6 +113,7 @@ const App = () => {
                                         autoFocus
                                         onChange={(e) => setData({ ...data, labels: e.target.value })}
                                         value={data.labels}
+                                        autoComplete='off'
                                     />
                                 </Form.Group>
                                 <Form.Group
@@ -126,6 +127,7 @@ const App = () => {
                                         autoFocus
                                         onChange={(e) => setData({ ...data, url: e.target.value })}
                                         value={data.url}
+                                        autoComplete='off'
                                     />
                                 </Form.Group>
                             </Form>
