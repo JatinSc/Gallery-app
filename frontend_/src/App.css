@@ -92,16 +92,19 @@ background-color: rgba(20, 19, 19, 0.562);
 } */
 
 .main{
-  width: 1000px;
+  /* width: 1000px; */
   display: flex;
   flex-direction: column;
+  height: 100dvh;
 }
 .header{
   display:flex;
   flex-direction: row;
+  position: sticky;
   justify-content: space-between;
   padding: 10px;
-  align-items: center; 
+  align-items: center;
+  flex-wrap: wrap;
 }
 .header1{
   display:flex;
