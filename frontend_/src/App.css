@@ -124,8 +124,13 @@ background-color: rgba(20, 19, 19, 0.562);
   position: relative;
 }
 .loading{
-  margin-top: 50%;
-  margin:auto;
+  margin-top: 30%;
+  /* margin:auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .header{
   display:flex;

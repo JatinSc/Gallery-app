@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 
 
 const App = () => {
-    const [loading , setLoading] = useState(true)
+    const [loading , setLoading] = useState(false)
   const [hover, setHover] = useState(-1);
   const [data, setData] = useState({ labels: "", url: "", file: "" });
   const [showModal, setShowModal] = useState(false);
@@ -218,7 +218,10 @@ const App = () => {
           </>
         ) : null}
         {
-            loading?<div className="loading"><div class="loader"></div></div>:(
+            loading?<div className="loading">
+                <div class="loader"></div>
+                <small>Tap on Images to <small style={{color:"red",textDecoration:"underline"}}> Delete</small></small>
+            </div>:(
                 <div className="container">
                 {/* onMouseEnter={(e)=> setHover(index)} onMouseLeave={(e)=> setHover(-1)} */}
                 {pics
