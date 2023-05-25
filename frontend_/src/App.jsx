@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 
 
 const App = () => {
-    const [loading , setLoading] = useState(false)
+    const [loading , setLoading] = useState(true)
   const [hover, setHover] = useState(-1);
   const [data, setData] = useState({ labels: "", url: "", file: "" });
   const [showModal, setShowModal] = useState(false);

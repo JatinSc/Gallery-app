@@ -187,8 +187,8 @@ small{
   width: 50px;
   height: 50px;
   transform: rotate(45deg) translate(30%, 40%);
-  background: #40f72c;
-  box-shadow: 32px -34px 0 5px #088906;
+  background: #68BC44;
+  box-shadow: 32px -34px 0 5px #046C1C;
   animation: slide .9s infinite ease-in-out alternate;
 }
 
@@ -200,7 +200,7 @@ small{
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #e5ff00;
+  background: #FCFB20;
   transform: rotate(0deg);
   transform-origin: 25px 145px;
   animation: rotate .9s infinite ease-in-out;
