@@ -4,8 +4,10 @@ import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import Loading from "./spinner/loading"; 
 
 const App = () => {
+    const [loading , setLoading] = useState(false)
   const [hover, setHover] = useState(-1);
   const [data, setData] = useState({ labels: "", url: "", file: "" });
   const [showModal, setShowModal] = useState(false);
@@ -13,6 +15,7 @@ const App = () => {
   const [search, setSearch] = useState("");
 
   const getPics = async () => {
+    setLoading(true)
     try {
       const res = await fetch(
         `https://gallery-app-backend-csdh.onrender.com/pics`,
@@ -24,8 +27,11 @@ const App = () => {
       if (!result.error) {
         setPics(result.data);
         console.log(result);
+        setLoading(false)
       }
-    } catch (error) {}
+    } catch (error) {
+        window.alert(error)
+    }
   };
 
   useEffect(() => {
@@ -43,6 +49,8 @@ const App = () => {
   };
   const handelAdd = async (event) => {
     //local server   http://127.0.0.1:8000
+    setShowModal(false);
+    setLoading(true)
     event.preventDefault();
     try {
       const res = fetch(
@@ -58,15 +66,16 @@ const App = () => {
       const result = await (await res).json;
       if (!result.error) {
         setData({ labels: "", url: "", file: "" });
-        setShowModal(false);
         getPics();
+        setLoading(false)
       }
     } catch (error) {
-      console.log(error);
+      window.alert(error);
     }
   };
 
   const handelDelete = async (id) => {
+    setLoading(true)
     try {
       const res = await fetch(
         `https://gallery-app-backend-csdh.onrender.com/delete${id}`,
@@ -77,6 +86,7 @@ const App = () => {
       const result = await res.json();
       if (!result.error) {
         setPics(result.myPics);
+        setLoading(false)
       }
     } catch (error) {
       console.log(error);
@@ -207,33 +217,38 @@ const App = () => {
             </Modal>
           </>
         ) : null}
-
-        <div className="container">
-          {/* onMouseEnter={(e)=> setHover(index)} onMouseLeave={(e)=> setHover(-1)} */}
-          {pics
-            .filter((data) =>
-              data.labels.toLowerCase().includes(search.toLowerCase())
-            )
-            .map((pic, index) => (
-              <div className="pics" key={pic._id}>
-                <img src={pic.url} alt="food" className="card-1"></img>
-                <div className="card-body">
-                  <Button
-                    className="delete"
-                    variant="outline-danger"
-                    onClick={(e) => handelDelete(pic._id)}
-                  >
-                    delete
-                  </Button>
-                  <p>{pic.labels}</p>
-                  {/* {hover === index ? <Button className='delete' variant="outline-danger" onClick={(e) => handelDelete(pic._id)}>
-                                        delete
-                                    </Button> : null}
-                                    {hover === index ? <strong><p>{pic.labels}</p></strong> : null} */}
-                </div>
+        {
+            loading?<div className="loading"><Loading/></div>:(
+                <div className="container">
+                {/* onMouseEnter={(e)=> setHover(index)} onMouseLeave={(e)=> setHover(-1)} */}
+                {pics
+                  .filter((data) =>
+                    data.labels.toLowerCase().includes(search.toLowerCase())
+                  )
+                  .map((pic, index) => (
+                    <div className="pics" key={pic._id}>
+                      <img src={pic.url} alt="food" className="card-1"></img>
+                      <div className="card-body">
+                        <Button
+                          className="delete"
+                          variant="outline-danger"
+                          onClick={(e) => handelDelete(pic._id)}
+                        >
+                          delete
+                        </Button>
+                        <p>{pic.labels}</p>
+                        {/* {hover === index ? <Button className='delete' variant="outline-danger" onClick={(e) => handelDelete(pic._id)}>
+                                              delete
+                                          </Button> : null}
+                                          {hover === index ? <strong><p>{pic.labels}</p></strong> : null} */}
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
-            ))}
-        </div>
+            )
+        }
+       
       </div>
     </>
   );
