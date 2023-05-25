@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import Loading from "./spinner/loading"; 
+
 
 const App = () => {
     const [loading , setLoading] = useState(false)
@@ -218,7 +218,7 @@ const App = () => {
           </>
         ) : null}
         {
-            loading?<div className="loading"><Loading/></div>:(
+            loading?<div className="loading"><div class="loader"></div></div>:(
                 <div className="container">
                 {/* onMouseEnter={(e)=> setHover(index)} onMouseLeave={(e)=> setHover(-1)} */}
                 {pics
