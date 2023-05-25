@@ -5,7 +5,10 @@ require('dotenv').config()
 
 const app = express()
 app.use(require('cors')())
-app.use(express.json())
+// app.use(express.json())
+app.use(express.json({limit: '50mb'}));
+//we are using limit , cause we are using base64 to save the image in string format
+//but that string is large to save , so we increase the limit
 app.use('/', galleryRouter)
 
 

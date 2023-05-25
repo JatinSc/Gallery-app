@@ -5,20 +5,22 @@ const galleryRouter = express.Router()
 
 //for adding pics
 galleryRouter.post('/newPost', async(req,res)=>{
-    const {labels , url} = req.body
-
+    const {labels} = req.body
+    const url = req.body.url?req.body.url:req.body.file
+    
     if (!labels || !url)
     return res
       .status(400)
       .json({ error: 'please enter all the required fields' })
     
       try{
-        const newPic = new Gallery({labels,url})
+        const newPic = new Gallery({labels,url:url})
         const result = await newPic.save()
         const newData = await Gallery.find()
 
         return res.status(201).json({
-            myPics : newData.reverse()
+            myPics : newData.reverse(),
+            // data:url
         })
         }catch(error){
             return  res.status(404).json({
